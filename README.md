@@ -25,9 +25,9 @@ Este repositorio contiene todos los trabajos prácticos, exámenes parciales y e
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
-* JavaScript
-* 
-* 
+## 🛠️ Tecnologías Utilizadas (Stack MERN)
+* **Frontend:** React
+* **Backend:** Node.js & Express
+* **Base de Datos:** MongoDB
 
 ---
