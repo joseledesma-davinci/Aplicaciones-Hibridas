@@ -13,15 +13,15 @@ Este repositorio contiene todos los trabajos prácticos, exámenes parciales y e
 ## 📂 Contenido del Repositorio
 
 ### 📆 Actividades Semanales
-* **Semana 1:** Fundamentos y configuración del entorno de desarrollo.
+* **Semana 1:** Entorno nodeJS, calse y objetos.
 * **Semana 2:** .
 
 ### 📝 Exámenes Parciales
-* **Primer Parcial:** Desarrollo de una aplicación híbrida base con navegación.
-* **Segundo Parcial:** Implementación de funciones nativas del dispositivo y persistencia.
+* **Primer Parcial:** Desarrollo de una aplicación híbrida base con navegación. CAMBIAR
+* **Segundo Parcial:** Implementación de funciones nativas del dispositivo y persistencia. CAMBIAR
 
 ### 🎓 Examen Final
-* **Proyecto Final:** Aplicación híbrida completa, optimizada y lista para producción.
+* **Proyecto Final:** Aplicación híbrida completa, optimizada y lista para producción. CAMBIAR
 
 ---
 
