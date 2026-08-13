@@ -27,6 +27,14 @@ manager.addProduct({
   stock: 10
 });
 
+manager.addProduct({
+  id: 4,
+  name: "Monitor",
+  description: "Monitor LED de 27 pulgadas",
+  price: 192000,
+  stock: 10
+});
+
 // Consultar todos los productos
 console.log("\nTodos los productos:");
 console.log(manager.getProducts());
