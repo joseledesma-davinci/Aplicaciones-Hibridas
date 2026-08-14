@@ -37,7 +37,8 @@ manager.addProduct({
 
 // Consultar todos los productos
 console.log("\nTodos los productos:");
-console.log(manager.getProducts());
+// console.log(manager.getProducts());
+console.table(manager.getProducts());
 
 // Buscar un producto existente
 console.log("\nProducto con ID 2:");
