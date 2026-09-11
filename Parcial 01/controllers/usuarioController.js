@@ -4,11 +4,11 @@ import Usuario from "../models/Usuario.js";
 class UsuarioController {
     async getAll( req, res) {
         try {
-            const usuario = await Usuario.find();
+            const usuarios = await Usuario.find();
 
             res.json({
                 message:'success',
-                data: usuario
+                data: usuarios
             })
 
         } catch (error) {
@@ -24,7 +24,8 @@ class UsuarioController {
 
             if( !usuario){
                 return res.status(404).json({
-                    message:'Usuario no encontrado'
+                    message:'Usuario no encontrado',
+                    data: usuario
                 });
             }
             res.json({
@@ -40,21 +41,22 @@ class UsuarioController {
     }
     async create(req, res) {
           try {
-            const { name, semester, hours } = req.body;
-            if( !name || !semester || !hours){
+            const { nombre, email, password } = req.body;
+            if( !nombre || !email || !password){
                 return res.status(403).send('Faltan Parametros Obligatorios');
             }
-            const subject = await Subject.create({ name, semester, hours})
+            const passwordHash = await bcrypt.hash( password, 10);
+            const usuario = await Usuario.create({ nombre, email, password: passwordHash})
 
             res.json({
                 message:'success',
-                data: subject
+                data: usuario
             })
 
         } catch (error) {
             console.error( error );
             res.status(500).json({
-                message: 'Error al crear la materia'
+                message: 'Error al crear el usuario'
             })
         }
     }
@@ -62,25 +64,25 @@ class UsuarioController {
           try {
             const id = req.params.id;
 
-            const { name, semester, hours, active, modalidad } = req.body;
-            if( !name || !semester || !hours || !active || !modalidad){
+            const { nombre, email, password } = req.body;
+            if( !nombre || !email || !password){
                 return res.status(403).send('Faltan Parametros Obligatorios');
             }
-
-            const subject = await Subject.findByIdAndUpdate(
+            const passwordHash = await bcrypt.hash( password, 10);
+            const usuario = await Usuario.findByIdAndUpdate(
                 id, 
-                { name, semester, hours, active, modalidad},
+                { nombre, email, passwordHash},
                 { new: true }
             )
 
             res.json({
                 message:'success',
-                data: subject
+                data: usuario
             })
 
         } catch (error) {
             res.status(500).json({
-                message: 'Error al actualizar la materia'
+                message: 'Error al actualizar el usuario'
             })
         }
     }
@@ -88,11 +90,11 @@ class UsuarioController {
           try {
             const id = req.params.id;
 
-            const subject = await Subject.findByIdAndDelete(id);
+            const usuario = await Usuario.findByIdAndDelete(id);
 
-            if( !subject){
+            if( !usuario){
                 return  res.status(404).json({
-                            message:'Materia no encontrada'            
+                            message:'Usuario no encontrado'            
                         });
             }
 

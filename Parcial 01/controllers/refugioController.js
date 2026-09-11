@@ -1,59 +1,60 @@
-import Subject from "../models/Curso.js";
+import Refugio from "../models/Refugio.js";
 
-class SubjectController {
+class RefugioController {
     async getAll( req, res) {
         try {
-            const subjects = await Subject.find();
+            const refugios = await Refugio.find();
 
             res.json({
                 message:'success',
-                data: subjects
+                data: refugios
             })
 
         } catch (error) {
             res.status(500).json({
-                message: 'Error al obtener las materias'
+                message: 'Error al obtener los refugios'
             })
         }
     }
     async getById( req, res) {
         try {
             const id = req.params.id;
-            const subject = await Subject.findById( id );
+            const refugio = await Refugio.findById( id );
 
-            if( !subject){
+            if( !refugio){
                 return res.status(404).json({
-                    message:'Materia no encontrada'
+                    message:'Refugio no encontrado'
                 });
             }
             res.json({
-                message:'success'
+                message:'success',
+                data: refugio
             })
 
         } catch (error) {
             console.error( error);
             res.status(500).json({
-                message: 'Error al obtener la materia'
+                message: 'Error al obtener el refugio'
             })
         }
     }
     async create(req, res) {
           try {
-            const { name, semester, hours } = req.body;
-            if( !name || !semester || !hours){
+            const { nombre, direccion, ciudad, telefono, email } = req.body;
+            if( !nombre || !direccion || !ciudad || !telefono || !email){
                 return res.status(403).send('Faltan Parametros Obligatorios');
             }
-            const subject = await Subject.create({ name, semester, hours})
+            const refugio = await Refugio.create({ nombre, direccion, ciudad, telefono, email })
 
             res.json({
                 message:'success',
-                data: subject
+                data: refugio
             })
 
         } catch (error) {
             console.error( error );
             res.status(500).json({
-                message: 'Error al crear la materia'
+                message: 'Error al crear el refugio'
             })
         }
     }
@@ -61,25 +62,25 @@ class SubjectController {
           try {
             const id = req.params.id;
 
-            const { name, semester, hours, active, modalidad } = req.body;
-            if( !name || !semester || !hours || !active || !modalidad){
+            const { nombre, direccion, ciudad, telefono, email } = req.body;
+            if( !nombre || !direccion || !ciudad || !telefono || !email ){
                 return res.status(403).send('Faltan Parametros Obligatorios');
             }
 
-            const subject = await Subject.findByIdAndUpdate(
+            const refugio = await Refugio.findByIdAndUpdate(
                 id, 
-                { name, semester, hours, active, modalidad},
+                { nombre, direccion, ciudad, telefono, email},
                 { new: true }
             )
 
             res.json({
                 message:'success',
-                data: subject
+                data: refugio
             })
 
         } catch (error) {
             res.status(500).json({
-                message: 'Error al actualizar la materia'
+                message: 'Error al actualizar el refugio'
             })
         }
     }
@@ -87,11 +88,11 @@ class SubjectController {
           try {
             const id = req.params.id;
 
-            const subject = await Subject.findByIdAndDelete(id);
-
-            if( !subject){
+            const refugio = await Refugio.findByIdAndDelete(id);
+            // FALTA VALIDAR MASCOTAS EN REFUGIO
+            if( !refugio){
                 return  res.status(404).json({
-                            message:'Materia no encontrada'            
+                            message:'Refugio no encontrado'            
                         });
             }
 
@@ -101,10 +102,10 @@ class SubjectController {
 
         } catch (error) {
             res.status(500).json({
-                message: 'Error al eliminar la materia'
+                message: 'Error al eliminar el refugio'
             })
         }
     }
 }
 
-export default SubjectController;
+export default RefugioController;

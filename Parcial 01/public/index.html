@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Adopción de Mascotas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="bg-success">
-        <h1>API</h1>
-    </header>
-    <main class="container">
-        <img src="api.png" alt="logo" width="64">
-             <ul>
-                <li><a href='/subjects'> Listado de materias </a> </li>
-                <li><a href='api/users'> Listado de usuarios </a> </li>
-                <li><a href='/register'> Registro </a> </li>
-                <li><a href='/contact'> Contactos </a> </li>
-            </ul>
-    </main>
-    <footer class="bg-dark text-white">
-        <p> DV | Aplicaciones Híbirdas | 2026</p>
+  <div class="container">
+    <h1>🐾 API REST - Sistema de Adopción de Mascotas</h1>
+    <p>Bienvenido a la API de gestión y adopción de mascotas. Esta plataforma permite consultar animales disponibles, filtrar por especie o tamaño, buscar por nombre y gestionar refugios.</p>
+
+    <h2>Endpoints Principales</h2>
+    <ul>
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/mascotas" target="_blank">/api/mascotas</a> - Listar todas las mascotas (soporta filtros y búsqueda)
+      </li>
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/mascotas?nombre=luna" target="_blank">/api/mascotas?nombre=luna</a> - Búsqueda por nombre
+      </li>
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/mascotas?especie=perro&tamano=mediano" target="_blank">/api/mascotas?especie=perro&tamano=mediano</a> - Filtrado por especie y tamaño
+      </li>
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/refugios" target="_blank">/api/refugios</a> - Listar refugios registrados
+      </li>
+      <li>
+        <span class="badge badge-post">POST</span> <code>/api/auth/registro</code> - Registrar nuevo usuario
+      </li>
+      <li>
+        <span class="badge badge-post">POST</span> <code>/api/auth/login</code> - Iniciar sesión y obtener JWT
+      </li>
+      <li>
+        <span class="badge badge-post">POST</span> <code>/api/mascotas</code> - Crear mascota (Requiere Bearer Token)
+      </li>
+      <li>
+        <span class="badge badge-put">PUT</span> <code>/api/mascotas/:id</code> - Actualizar mascota (Requiere Bearer Token)
+      </li>
+      <li>
+        <span class="badge badge-delete">DELETE</span> <code>/api/mascotas/:id</code> - Eliminar mascota (Requiere Bearer Token)
+      </li>
+    </ul>
+
+    <footer>
+      <p><strong>Alumno (Nombre y Apellido):</strong> TU_NOMBRE_Y_APELLIDO</p>
+      <p><strong>Materia:</strong> NOMBRE_DE_LA_MATERIA</p>
+      <p><strong>Docente:</strong> NOMBRE_DEL_DOCENTE</p>
+      <p><strong>Comisión:</strong> TU_COMISION</p>
     </footer>
+  </div>
 </body>
 </html>
