@@ -1,9 +1,9 @@
 import express from 'express';
-import SubjectController from '../controllers/SubjectController.js';
+import RefugioController from '../controllers/refugioController.js';
 
 const router = express.Router()
 
-const controller = new SubjectController();
+const controller = new RefugioController();
 
 router.get('/',     controller.getAll  );
 router.get('/:id',  controller.getById );

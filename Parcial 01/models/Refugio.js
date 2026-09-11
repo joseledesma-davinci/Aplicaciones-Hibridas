@@ -24,6 +24,7 @@ const refugioSchema = new mongoose.Schema({
     },
     email: {
       type: String,
+      required: [true, 'La email es obligatorio'],
       lowercase: true,
       trim: true
     }

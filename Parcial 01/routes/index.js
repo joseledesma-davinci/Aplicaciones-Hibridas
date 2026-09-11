@@ -1,9 +1,11 @@
-import userRouter from './userRouter.js'
-import subjectRouter from './subjectRouter.js'
+import usuarioRouter from './usuarioRouter.js'
+import refugioRouter from './refugioRouter.js'
+// import mascotaRouter from './mascotaRouter.js'
 
 const routerAPI = ( app ) => {
-    app.use('/api/users', userRouter);
-    app.use('/api/subjects', subjectRouter);
+    app.use('/api/usuarios', usuarioRouter);
+    app.use('/api/refugios', refugioRouter);
+    // app.use('/api/mascotas', mascotaRouter);
 }
 
 export default routerAPI;

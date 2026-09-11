@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import chalk from 'chalk';
 import { connectDB } from './config/db.js';
 import routerAPI from './routes/index.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
@@ -14,18 +16,19 @@ app.use(  express.static('public')  );
 const port = process.env.PORT;
 connectDB();
 
-
-app.get('/', (request, response) => {
-    count++;
-    console.log(`Cliente conectado`);
-    response.send(`<h1>Hola desde Express.js👋</h1> 
-                    <ul>
-                        <li><a href='/subjects'> Listado de materias </a> </li>
-                        <li><a href='api/users'> Listado de usuarios </a> </li>
-                        <li><a href='/register'> Registro </a> </li>
-                        <li><a href='/contact'> Contactos </a> </li>
-                    </ul>`);
-})
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.join(__dirname, 'public')));
+// app.get('/', (request, response) => {
+//     count++;
+//     console.log(`Cliente conectado`);
+//     response.send(`<h1>Hola desde Express.js👋</h1> 
+//                     <ul>
+//                         <li><a href='/subjects'> Listado de materias </a> </li>
+//                         <li><a href='api/users'> Listado de usuarios </a> </li>
+//                         <li><a href='/register'> Registro </a> </li>
+//                         <li><a href='/contact'> Contactos </a> </li>
+//                     </ul>`);
+// })
 
 routerAPI(app);
 
