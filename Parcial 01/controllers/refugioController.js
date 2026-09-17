@@ -1,4 +1,5 @@
 import Refugio from "../models/Refugio.js";
+import Mascota from "../models/Mascota.js";
 
 class RefugioController {
     async getAll( req, res) {
@@ -88,12 +89,20 @@ class RefugioController {
           try {
             const id = req.params.id;
 
+            const mascotas = await Mascota.find({ refugio: id});
+                // console.log( {mascotas});
+                if( mascotas.length > 0){
+                    return res.status(400).json({
+                        message: 'No es posible elimnar el refugio, tiene mascotas asociadas'
+                    })
+                }
+
             const refugio = await Refugio.findByIdAndDelete(id);
-            // FALTA VALIDAR MASCOTAS EN REFUGIO
+            
             if( !refugio){
-                return  res.status(404).json({
-                            message:'Refugio no encontrado'            
-                        });
+                return res.status(404).json({
+                    message:'Refugio no encontrado'            
+                });
             }
 
             res.json({

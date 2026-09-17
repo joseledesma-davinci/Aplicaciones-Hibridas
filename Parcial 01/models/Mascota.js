@@ -37,7 +37,7 @@ const mascotaSchema = new mongoose.Schema({
     },
     descripcion: {
       type: String,
-      required: [true, 'La descripción es obligatoria'],
+      // required: [true, 'La descripción es obligatoria'],
       trim: true
     },
     // imagenUrl: {
@@ -52,7 +52,7 @@ const mascotaSchema = new mongoose.Schema({
     },
     refugio: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Refugio',
+      ref: 'refugio',
       required: [true, 'El refugio es obligatorio']
     }
 })

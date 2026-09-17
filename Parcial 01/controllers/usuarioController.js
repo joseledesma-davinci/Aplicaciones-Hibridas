@@ -4,7 +4,7 @@ import Usuario from "../models/Usuario.js";
 class UsuarioController {
     async getAll( req, res) {
         try {
-            const usuarios = await Usuario.find();
+            const usuarios = await Usuario.find().select('-password -createdAt');
 
             res.json({
                 message:'success',
@@ -20,7 +20,7 @@ class UsuarioController {
     async getById( req, res) {
         try {
             const id = req.params.id;
-            const usuario = await Usuario.findById( id );
+            const usuario = await Usuario.findById( id ).select('-password -createdAt');
 
             if( !usuario){
                 return res.status(404).json({

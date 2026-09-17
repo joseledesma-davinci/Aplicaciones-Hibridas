@@ -18,21 +18,15 @@ connectDB();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, 'public')));
-// app.get('/', (request, response) => {
-//     count++;
-//     console.log(`Cliente conectado`);
-//     response.send(`<h1>Hola desde Express.js👋</h1> 
-//                     <ul>
-//                         <li><a href='/subjects'> Listado de materias </a> </li>
-//                         <li><a href='api/users'> Listado de usuarios </a> </li>
-//                         <li><a href='/register'> Registro </a> </li>
-//                         <li><a href='/contact'> Contactos </a> </li>
-//                     </ul>`);
-// })
 
 routerAPI(app);
 
+app.use((req, res) => {
+  res.status(404).json({
+    mensaje: 'Ruta no encontrada'
+  });
+});
+
 app.listen( port, () => {
-    console.log( chalk.green(`Servidor Web en el Puerto ${port}`) );
-    // Detenemos el proceso con Ctrl + c
+    console.log( chalk.green(`Servidor escuchando en http://localhost:${port}`));
 })
