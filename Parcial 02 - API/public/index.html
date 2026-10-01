@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Adopción de Mascotas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🐾 API REST - Sistema de Adopción de Mascotas</h1>
+    <p>Bienvenido a la API de gestión y adopción de mascotas. Esta plataforma permite consultar animales disponibles, filtrar por especie o tamaño, buscar por nombre y gestionar refugios.</p>
+
+    <h2>Mascotas - Endpoints</h2>
+    <ul>
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/mascotas" target="_blank">/api/mascotas</a> - Listar todas las mascotas (soporta filtros por especie, tamaño, estado y refugio)
+      </li>
+      <li>
+        <span class="badge badge-post">POST</span> <code>/api/mascotas</code> - Crear mascota
+      </li>
+      <li>
+        <span class="badge badge-put">PUT</span> <code>/api/mascotas/:id</code> - Actualizar mascota
+      </li>
+      <li>
+        <span class="badge badge-delete">DELETE</span> <code>/api/mascotas/:id</code> - Eliminar mascota
+      </li>
+    </ul>
+
+    <h2>Refugios - Endpoints</h2>
+    <ul>
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/refugios" target="_blank">/api/refugios</a> - Listar refugios registrados
+      </li>
+      <li>
+        <span class="badge badge-post">POST</span> <code>/api/refugios/</code> - Registrar nuevo refugio
+      </li>
+      <li>
+        <span class="badge badge-put">PUT</span> <code>/api/refugios/:id</code> - Actualizar refugio
+      </li>
+      <li>
+        <span class="badge badge-delete">DELETE</span> <code>/api/refugios/:id</code> - Eliminar refugio
+      </li>
+    </ul>
+    
+    <h2>Usuarios - Endpoints</h2>
+    <ul>
+      
+      <li>
+        <span class="badge badge-get">GET</span>
+        <a href="/api/usuarios" target="_blank">/api/usuarios</a> - Listar todos los usuarios
+      </li>
+      <li>
+        <span class="badge badge-post">POST</span> <code>/api/usuarios/</code> - Registrar nuevo usuario
+      </li>
+      <li>
+        <span class="badge badge-put">PUT</span> <code>/api/usuarios/:id</code> - Actualizar usuario
+      </li>
+      <li>
+        <span class="badge badge-delete">DELETE</span> <code>/api/usuarios/:id</code> - Eliminar usuario
+      </li>
+    </ul>
+
+    <footer>
+      <p><strong>Alumno:</strong> José Nicolás Ledesma</p>
+      <p><strong>Materia:</strong> Aplicaciones Hibridas</p>
+      <p><strong>Docente:</strong> Jonathan Emanuel Cruz</p>
+      <p><strong>Comisión:</strong> DWN4AV</p>
+    </footer>
+  </div>
+</body>
+</html>
