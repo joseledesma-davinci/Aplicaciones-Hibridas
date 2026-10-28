@@ -28,7 +28,7 @@ function Home() {
 
       <div className="cardContainer">
       {mascotas.map((mascota) => (
-        <article key={mascota.id} className="cardMascota">
+        <article key={mascota._id} className="cardMascota">
           <img src={reactLogo} alt={mascota.nombre} />
           
           <h4>Nombre: {mascota.nombre}</h4>

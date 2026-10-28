@@ -1,26 +1,30 @@
-import { useState, useEffect } from 'react'
-import { iniciarSesion } from '../service/api';
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+// import { iniciarSesion } from '../service/api';
+import { useAuth } from '../context/AuthContext';
 
 function Login() {
     //estados formulario login
   const [mensaje, setMensaje] = useState('');
   const [email, setEmail] = useState('mail@mail.com');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState('');
-  const [cargando, setCargando] = useState(true);
+  const [cargando, setCargando] = useState(false);
+
+  const { login } = useAuth();
+  const navigate = useNavigate(); 
 
   async function handleSubmit(event) {
       event.preventDefault();
-      //setCargando(true);
+      setCargando(true);
   
       try {
-        const result = await iniciarSesion(email, password);
-        setMensaje(result.data.message);
+        await login(email, password)
+        navigate('/');
       } catch (error) {
         setMensaje(error.message);
         console.error('Error al iniciar sesión:', error);
       } finally {
-        //setCargando(false);
+        setCargando(false);
       }
     }
   return (
