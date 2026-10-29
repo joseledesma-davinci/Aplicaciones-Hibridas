@@ -74,11 +74,13 @@ class AuthController {
                 })
             }
             // Agregamos el role en los datos visibles
+            //console.log(user);
+            
             const payload = {
                 id: user._id,
-                name: user.name,
+                nombre: user.nombre,
                 email: user.email,
-                role: user.rol
+                rol: user.rol
             }
 
             // Luego generamos el Token
