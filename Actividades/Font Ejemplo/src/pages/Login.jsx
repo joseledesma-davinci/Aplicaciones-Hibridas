@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-// import { iniciarSesion } from '../service/api';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 function Login() {
@@ -11,7 +10,9 @@ function Login() {
   const [cargando, setCargando] = useState(false);
 
   const { login } = useAuth();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const destino = location.state?.from?.pathname || '/perfil';
 
   async function handleSubmit(event) {
       event.preventDefault();
@@ -19,7 +20,7 @@ function Login() {
   
       try {
         await login(email, password)
-        navigate('/');
+        navigate(destino, { replace: true });
       } catch (error) {
         setMensaje(error.message);
         console.error('Error al iniciar sesión:', error);
