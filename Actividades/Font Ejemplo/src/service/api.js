@@ -41,7 +41,7 @@ export async function registrarUsuario(nombre, email, password) {
 }
 
 export async function fetchPrivado( endpoint, options={}) {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if (!token) {
         throw new Error('No se encontró token de autenticación');
     }
