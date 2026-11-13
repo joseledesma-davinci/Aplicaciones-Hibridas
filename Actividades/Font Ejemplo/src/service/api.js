@@ -69,3 +69,18 @@ export async function fetchPrivado( endpoint, options={}) {
 
     return data;
 }
+
+export async function obtenerPerfil(){
+    return await fetchPrivado('/api/usuarios/me');
+}
+
+export async function subirFotoPerfil( archivo ){
+
+    const formData = new FormData();
+    formData.append('profileImage', archivo);
+    
+    return await fetchPrivado('/api/usuarios/profileimage',{
+        method: 'POST',
+        body: formData
+    })
+}
