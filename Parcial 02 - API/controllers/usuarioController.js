@@ -117,6 +117,68 @@ class UsuarioController {
             })
         }
     }
+
+    async uploadProfileImage( req, res) {
+            try {
+                // Verificamos si no se paso una archivo
+                if( !req.file){
+                    return res.status(400).json({
+                        message: `No se envio el archivo`
+                    })
+                }
+                // Construimos la ruta pública
+                const imagePath = `/uploads/profiles/${req.file.filename}`;
+                // Identificamos al usuario por su id que obtenemos del JWT
+                const id = req.user.id;
+                // Actualizamos el usuario con la ruta de la imagen
+                const user = await Usuario.findByIdAndUpdate(
+                    id, 
+                    {profileImage: imagePath}, 
+                    { new: true}
+                ).select('_id name email profileImage');
+                // Si no se actualizo el usuario porque no se encotro
+                if(!user){
+                    return res.status(404).json({
+                        message: 'Usuario no econtrado'
+                    })
+                }
+    
+                return res.status(200).json({
+                    message: 'Imagen actualizada', 
+                    data: user 
+                });
+                
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({
+                    message: `Error del servidor, al actualizar la foto del usuario`
+                })
+            }
+        }
+    
+        async getMe(req, res) {
+            try {
+                const id = req.user.id;
+                const user = await Usuario.findById(id).select('-password');
+    
+                if( !user){
+                    return res.status(404).json({
+                        message: 'Usuario no encontrado'
+                    });
+                }
+    
+                res.status(200).json({
+                    message: 'success',
+                    data: user
+                })
+    
+            } catch (error) {
+                console.error( error);
+                res.status(500).json({
+                    message: "Error al obentener el Perfil"
+                })
+            }
+        }
 }
 
 export default UsuarioController;
