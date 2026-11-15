@@ -8,7 +8,7 @@ const router = express.Router()
 const controller = new MascotaController();
 
 router.get('/',  controller.getAll  );
-router.get('/:id', authMiddleware, controller.getById );
+router.get('/:id', controller.getById );
 router.post('/', authMiddleware, roleMiddleware, controller.create  );
 router.put('/:id', authMiddleware, roleMiddleware, controller.update  );
 router.delete('/:id', authMiddleware, roleMiddleware, controller.delete);
