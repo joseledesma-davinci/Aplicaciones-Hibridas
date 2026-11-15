@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 64 64">
+  <!-- Generator: Adobe Illustrator 31.0.0, SVG Export Plug-In . SVG Version: 2.1.5 Build 84)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #287a54;
+      }
+    </style>
+  </defs>
+  <ellipse class="st0" cx="16.5" cy="29" rx="5" ry="6.5" transform="translate(-8.92 7.39) rotate(-20)"/>
+  <ellipse class="st0" cx="26" cy="18.5" rx="5.2" ry="7.2"/>
+  <ellipse class="st0" cx="38" cy="18.5" rx="5.2" ry="7.2"/>
+  <ellipse class="st0" cx="47.5" cy="29" rx="6.5" ry="5" transform="translate(4 63.72) rotate(-70)"/>
+  <path class="st0" d="M32,33c-7.2,0-13.5,6.2-13.5,11.6,0,4.2,3.2,6.4,7.3,6.4,2.2,0,4.1-1,6.2-1s4,1,6.2,1c4.1,0,7.3-2.2,7.3-6.4C45.5,39.2,39.2,33,32,33Z"/>
+</svg>

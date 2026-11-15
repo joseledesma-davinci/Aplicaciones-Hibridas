@@ -85,6 +85,8 @@ function Perfil(){
 
         } catch (error) {
             setMensaje(error.message)
+        } finally {
+            setSubiendo(false)
         }
     }
 

@@ -16,10 +16,18 @@ import MascotaDetalle from './pages/MascotaDetalle'
 import Refugios from './pages/Refugios'
 import RefugioDetalle from './pages/RefugioDetalle'
 
+import logo from './assets/patita verde.svg'
+
 function App() {
   return (
     <>
-      <h1>Adopción de Mascotas</h1>
+      <header class="encabezado-principal">
+        <div class="logo-titulo">
+          <img src={logo} alt="Logo" class="logo-icono" />
+          <h1>Adopción de Mascotas</h1>
+        </div>
+      </header>
+      
 
       <Nav />
 
@@ -52,6 +60,13 @@ function App() {
         </Route>
 
       </Routes>
+
+      <footer>
+      <p><strong>Alumno:</strong> José Nicolás Ledesma</p>
+      <p><strong>Materia:</strong> Aplicaciones Hibridas</p>
+      <p><strong>Docente:</strong> Jonathan Emanuel Cruz</p>
+      <p><strong>Comisión:</strong> DWN4AV</p>
+    </footer>
     </>
   )
 }

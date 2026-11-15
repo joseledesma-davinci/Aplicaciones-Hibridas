@@ -31,7 +31,7 @@ function MascotaDetalle() {
   if (!mascota) return <p>Mascota no encontrada.</p>
 
   return (
-    <div>
+    <div className="detalle-card">
       <h2>{mascota.nombre}</h2>
 
       <ul>

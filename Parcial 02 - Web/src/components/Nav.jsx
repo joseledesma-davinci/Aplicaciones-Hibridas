@@ -10,6 +10,10 @@ function Nav() {
     navigate('/login')
   }
 
+  function register() {
+    navigate('/register')
+  }
+
   return (
     <nav className="nav">
       {/* Siempre visibles */}
@@ -28,7 +32,8 @@ function Nav() {
       ) : (
         <>
           <Link to="/login">Login</Link>
-          <Link to="/register">Registrarse</Link>
+          <button onClick={register}>Registrarse</button>
+          {/* <Link to="/register">Registrarse</Link> */}
         </>
       )}
     </nav>

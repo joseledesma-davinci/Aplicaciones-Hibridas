@@ -31,7 +31,7 @@ function RefugioDetalle() {
   if (!refugio) return <p>Refugio no encontrado.</p>
 
   return (
-    <div>
+    <div className="detalle-card">
       <h2>{refugio.nombre}</h2>
 
       <ul>
